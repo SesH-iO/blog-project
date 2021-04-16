@@ -1,0 +1,24 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px 0;
+	text-transform: uppercase;
+}
+
+.headerMenu a {
+	display: inline-block;
+	margin: 0 10px;
+	text-decoration: none;
+	color: #565673;
+	font-size: 14px;
+	letter-spacing: 1.2px;
+}
+
+.headerMenu a:first-of-type {
+	margin: 0 10px 0 0;
+}
+
+.headerMenu a:hover {
+	color: #5f9ea0;
+}
