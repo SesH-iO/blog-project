@@ -1,23 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { ReactComponent as Search } from '../../assets/icons/search-icon.svg';
 
 import './navbar.css';
 
-const Navbar = (props) => (
-	<div className='navbar'>
-		<nav className='navbarMenu'>
-			<a href='/'>HOME</a>
-			<a href='/'>ABOUT</a>
-			<a href='/'>POSTS</a>
-			<a href='/'>CONTACT US</a>
-		</nav>
-		<div className='search'>
-			<input type='text' placeholder='Search' />
-			<div className='searchContaner'>
-				<Search />
+const Navbar = (props) => {
+	const [search, setSearch] = useState(false);
+
+	const submitSearchHandler = (e) => {
+		e.preventDefault();
+		alert('Done!!');
+	};
+
+	const openSearchHandler = () => {
+		setSearch(true);
+	};
+
+	const searchClass = search ? 'searchInput active' : 'searchInput';
+
+	return (
+		<div className='navbar'>
+			<nav className='navbarMenu'>
+				<NavLink to='/'>HOME</NavLink>
+				<NavLink to='/about'>ABOUT</NavLink>
+				<NavLink to='/posts'>POSTS</NavLink>
+				<NavLink to='/contact-us'>CONTACT US</NavLink>
+			</nav>
+			<div className='search'>
+				<form onSubmit={submitSearchHandler}>
+					<input className={searchClass} type='text' placeholder='Search' />
+					<div className='searchIconConatiner'>
+						<Search onClick={openSearchHandler} />
+					</div>
+				</form>
 			</div>
 		</div>
-	</div>
-);
+	);
+};
 
 export default Navbar;

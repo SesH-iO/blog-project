@@ -1,0 +1,27 @@
+.sidebarContainer {
+	width: 27%;
+}
+
+.cardHeader {
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 20px;
+	letter-spacing: 2px;
+	color: #565673;
+}
+
+.profileContainer {
+	width: 100%;
+}
+
+.profileContainer img {
+	max-width: 100%;
+	max-height: 100%;
+	margin: 10px 0;
+}
+
+.cardBody p {
+	font-size: 14px;
+	color: #565673;
+	font-weight: 300;
+}
