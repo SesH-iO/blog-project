@@ -1,23 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './blog-post.css';
+import blogPosts from '../../data/blog.json';
 
 import Card from '../UI/Card/card';
 
-const image = require('../../assets/blogPostImages/memories-from.jpg');
-
 const BlogPost = (props) => {
+	const [blPost, setBlPost] = useState({
+		id: '',
+		blogCategory: '',
+		blogTitle: '',
+		slug: '',
+		postedOn: '',
+		author: '',
+		blogImage: '',
+		blogText: '',
+	});
+	const [postId, setPostId] = useState('');
+
+	useEffect(() => {
+		const postID = props.match.params.postId;
+		const post = blogPosts.data.find((blogPost) => blogPost.id == postID);
+		setBlPost(post);
+		setPostId(postID);
+	}, [blPost, props.match.params.postId]);
+
+	if (blPost.blogImage === '') return null;
 	return (
 		<div className='blogPostContainer'>
 			<Card>
 				<div className='blogHeader'>
-					<span className='blogCategory'>Featured</span>
-					<h1 className='postTitle'>Beautiful is always Beautiful</h1>
+					<span className='blogCategory'>{blPost.blogCategory}</span>
+					<h1 className='postTitle'>{blPost.blogTitle}</h1>
 					<em style={{ fontSize: '14px', display: 'block', padding: '10px 0', color: '#565673' }}>
-						posted on July 21, 2016 by Sora Blogging Tips
+						{blPost.postedOn} by {blPost.author}
 					</em>
 				</div>
+				{console.log(blPost.blogImage)}
 				<div className='postImageContainer'>
-					<img src={image.default} alt='PostImage' />
+					<img
+						src={require(`../../assets/blogPostImages/${blPost.blogImage}`).default}
+						alt='PostImage'
+					/>
+				</div>
+				<div className='postContent'>
+					<h3>{blPost.blogTitle}</h3>
+					<p>{blPost.blogText}</p>
 				</div>
 			</Card>
 		</div>

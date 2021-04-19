@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+
 import './sidebar.css';
 
+import blogPosts from '../../data/blog.json';
 import Card from '../UI/Card/card';
 
 const Sidebar = (props) => {
+	const [blPosts, setBlPosts] = useState([]);
+
+	useEffect(() => {
+		const posts = blogPosts.data;
+		setBlPosts(posts);
+	}, blPosts);
+
 	return (
 		<div className='sidebarContainer'>
 			<Card style={{ marginBottom: '15px', padding: '20px' }}>
@@ -23,9 +33,26 @@ const Sidebar = (props) => {
 					</p>
 				</div>
 			</Card>
-			<Card>
+			<Card style={{ marginBottom: '15px', padding: '20px' }}>
 				<div className='cardHeader'>
-					<span>Social network</span>
+					<span>Social networks</span>
+				</div>
+			</Card>
+			<Card style={{ marginBottom: '15px', padding: '20px' }}>
+				<div className='cardHeader'>
+					<span>Recent Post</span>
+				</div>
+				<div className='recentPosts'>
+					{blPosts.map((post) => {
+						return (
+							<NavLink to={`/post/${post.id}`} key={post.id}>
+								<div className='recentPost'>
+									<h3>{post.blogTitle}</h3>
+									<span>{post.postedOn}</span>
+								</div>
+							</NavLink>
+						);
+					})}
 				</div>
 			</Card>
 		</div>

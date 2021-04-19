@@ -23,7 +23,7 @@ const Navbar = (props) => {
 			<nav className='navbarMenu'>
 				<NavLink to='/'>HOME</NavLink>
 				<NavLink to='/about'>ABOUT</NavLink>
-				<NavLink to='/posts'>POSTS</NavLink>
+				<NavLink to='/post'>POSTS</NavLink>
 				<NavLink to='/contact-us'>CONTACT US</NavLink>
 			</nav>
 			<div className='search'>

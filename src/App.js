@@ -15,7 +15,7 @@ function App() {
 			<Header />
 			<Hero />
 			<Switch>
-				<Route path='/posts' component={Post} />
+				<Route path='/post/:postId' component={Post} />
 				<Route path='/contact-us' component={ContactUs} />
 				<Route path='/' component={Home} />
 			</Switch>
