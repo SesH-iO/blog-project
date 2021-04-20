@@ -15,14 +15,14 @@ const BlogPost = (props) => {
 		blogImage: '',
 		blogText: '',
 	});
-	const [postId, setPostId] = useState('');
+	const [slug, setSlug] = useState('');
 
 	useEffect(() => {
-		const postID = props.match.params.postId;
-		const post = blogPosts.data.find((blogPost) => blogPost.id == postID);
+		const slug = props.match.params.slug;
+		const post = blogPosts.data.find((blogPost) => blogPost.slug === slug);
 		setBlPost(post);
-		setPostId(postID);
-	}, [blPost, props.match.params.postId]);
+		setSlug(slug);
+	}, [blPost, props.match.params.slug]);
 
 	if (blPost.blogImage === '') return null;
 	return (
@@ -35,7 +35,6 @@ const BlogPost = (props) => {
 						{blPost.postedOn} by {blPost.author}
 					</em>
 				</div>
-				{console.log(blPost.blogImage)}
 				<div className='postImageContainer'>
 					<img
 						src={require(`../../assets/blogPostImages/${blPost.blogImage}`).default}

@@ -15,9 +15,9 @@ function App() {
 			<Header />
 			<Hero />
 			<Switch>
-				<Route path='/post/:postId' component={Post} />
+				<Route path='/post/:slug' component={Post} />
 				<Route path='/contact-us' component={ContactUs} />
-				<Route path='/' component={Home} />
+				<Route exact path='/' component={Home} />
 			</Switch>
 		</div>
 	);

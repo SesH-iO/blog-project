@@ -12,10 +12,10 @@ const Sidebar = (props) => {
 	useEffect(() => {
 		const posts = blogPosts.data;
 		setBlPosts(posts);
-	}, blPosts);
+	}, [blPosts]);
 
 	return (
-		<div className='sidebarContainer'>
+		<div className='sidebarContainer' style={{ width: props.width }}>
 			<Card style={{ marginBottom: '15px', padding: '20px' }}>
 				<div className='cardHeader'>
 					<span>About Us</span>
@@ -45,7 +45,7 @@ const Sidebar = (props) => {
 				<div className='recentPosts'>
 					{blPosts.map((post) => {
 						return (
-							<NavLink to={`/post/${post.id}`} key={post.id}>
+							<NavLink to={`/post/${post.slug}`} key={post.slug}>
 								<div className='recentPost'>
 									<h3>{post.blogTitle}</h3>
 									<span>{post.postedOn}</span>

@@ -1,0 +1,17 @@
+.galleryPost {
+	display: flex;
+	justify-content: space-between;
+}
+
+.sideWImageWrapper div {
+	width: 100%;
+}
+
+.sideWImageWrapper div img {
+	width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+
+
+

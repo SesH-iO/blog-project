@@ -9,7 +9,7 @@ import Navbar from '../Navbar/navbar';
 const Hero = (props) => (
 	<div>
 		<Card>
-			<div style={{ padding: '50px 0' }}>
+			<div style={{ padding: '80px 0' }}>
 				<Logo />
 			</div>
 			<Navbar />

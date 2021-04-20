@@ -4,8 +4,12 @@
 
 body {
 	background-color: #e9eaed;
-	padding: 0 80px;
+	margin: 0 60px;
 	font-family: 'Oswald', sans-serif;
+}
+
+a {
+	text-decoration: none;
 }
 
 .App {
